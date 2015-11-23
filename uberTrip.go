@@ -472,14 +472,15 @@ var  MinDuration float64
   SumDuration = SumDuration + MinDuration
   SumCost =SumCost + MinCost
   SumDist =SumDist + MinDist
-  // MinDuration = math.MaxInt32
-  // MinCost = math.MaxInt32
-  // MinDist = math.MaxFloat64
+  
   ProdVar = math.MaxFloat64
 
  }
 //for responsetrip body object to return as final response
-
+ UberResult2 := callUber(curloc,startPoint)
+ SumDuration = SumDuration + UberResult2.Duration
+  SumCost =SumCost + UberResult2.Price
+  SumDist =SumDist + UberResult2.Distance
  //converting Location id set from Int32 to string
  LocationIdSet2 := make([]string, len(LocationIdSet))
   for m,l := range LocationIdSet{
